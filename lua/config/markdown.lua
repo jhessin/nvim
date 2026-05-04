@@ -1,4 +1,5 @@
 vim.o.textwidth = 80
+vim.o.spell = false
 
 vim.keymap.set("n", "<up>", "<c-a>", { silent = true })
 vim.keymap.set("n", "<down>", "<c-x>", { silent = true })
