@@ -1,7 +1,7 @@
 return {
   -- add gruvbox
   { "joshdick/onedark.vim" },
-  -- { "flazz/vim-colorschemes" },
+  { "flazz/vim-colorschemes" },
 
   -- Configure LazyVim to load gruvbox
   {
