@@ -1,4 +1,5 @@
 vim.o.textwidth = 80
+vim.o.spell = false
 
 vim.keymap.set("n", "<up>", "<c-a>", { silent = true })
 vim.keymap.set("n", "<down>", "<c-x>", { silent = true })
@@ -17,6 +18,7 @@ end
 local function setup()
   -- vim.cmd("only")
   vim.cmd("cd ~/repos/work-files")
+  vim.cmd("sp Iris/Notes.md")
 end
 
 local function py()
@@ -31,7 +33,7 @@ local function setupPNI()
 end
 
 local function initJob()
-  vim.cmd.normal(vim.api.nvim_replace_termcodes("I## <ESC>^eea<CR><ESC>VS`jjo<ESC>j", true, true, true))
+  vim.cmd.normal(vim.api.nvim_replace_termcodes("I## <ESC>^eea<CR><ESC>Vgsa`o<ESC>", true, true, true))
 end
 
 local function initJobs(count)
