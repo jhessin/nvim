@@ -33,7 +33,7 @@ local function setupPNI()
 end
 
 local function initJob()
-  vim.cmd.normal(vim.api.nvim_replace_termcodes("I## <ESC>^eea<CR><ESC>Vgsa`o<ESC>", true, true, true))
+  vim.cmd.normal(vim.api.nvim_replace_termcodes("I### <ESC>^eea<CR><ESC>Vgsa`o<CR><ESC>", true, true, true))
 end
 
 local function initJobs(count)
