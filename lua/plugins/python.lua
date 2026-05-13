@@ -4,7 +4,9 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        pyright = {},
+        pyright = {
+          -- cmd = { "ncat", "localhost", "6005" },
+        },
       },
     },
   },
