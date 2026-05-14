@@ -32,4 +32,4 @@ local function start_godot_server_if_needed()
 end
 
 -- Main execution
-start_godot_server_if_needed()
+-- start_godot_server_if_needed()
