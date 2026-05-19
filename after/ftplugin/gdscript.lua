@@ -1,6 +1,3 @@
-vim.opt.expandtab = true
-vim.opt.preserveindent = true
-
 -- local port = os.getenv("GDScript_Port") or 6005
 -- local cmd = vim.lsp.rpc.connect("127.0.0.1", port)
 -- local pipe = ""
