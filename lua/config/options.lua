@@ -3,6 +3,7 @@
 -- Add any additional options here
 vim.o.mouse = "nv"
 vim.o.wrap = true
+vim.o.exrc = true
 
 vim.keymap.set("n", "<leader>um", function()
   require("render-markdown").toggle()
