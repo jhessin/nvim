@@ -13,3 +13,11 @@
 --     require("config.markdown")
 --   end,
 -- })
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  pattern = "*.py",
+  callback = function()
+    vim.opt_local.foldlevelstart = 0
+    vim.opt_local.foldlevel = 0
+  end,
+})
