@@ -14,8 +14,8 @@
 --   end,
 -- })
 
-vim.api.nvim_create_autocmd("BufWinEnter", {
-  pattern = "*.py",
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "Python",
   callback = function()
     vim.opt_local.foldlevelstart = 0
     vim.opt_local.foldlevel = 0
