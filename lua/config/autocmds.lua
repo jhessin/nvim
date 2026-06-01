@@ -21,3 +21,10 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.foldlevel = 0
   end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "pyproject.toml",
+  callback = function()
+    require("conform").format({ async = false, lsp_fallback = false })
+  end,
+})
