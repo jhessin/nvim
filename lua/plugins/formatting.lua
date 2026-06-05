@@ -3,6 +3,7 @@ return {
   opts = {
     formatters_by_ft = {
       toml = { "taplo" },
+      python = { "ruff", "black" },
     },
     formatters = {
       taplo = {
