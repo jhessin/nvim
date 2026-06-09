@@ -28,3 +28,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     require("conform").format({ async = false, lsp_fallback = false })
   end,
 })
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "OverseerTaskStarted",
+  callback = function()
+    vim.cmd("vsplit | terminal")
+  end,
+})
