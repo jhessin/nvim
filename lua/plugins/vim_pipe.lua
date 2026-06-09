@@ -1,3 +1,0 @@
-return {
-  "krisajenkins/vim-pipe",
-}

@@ -20,8 +20,6 @@ return {
         { "restart_on_save", paths = { vim.fn.expand("%:p") } },
         { "on_output_quickfix", open = false },
         "on_exit_set_status",
-        "on_complete_notify",
-        "open_vertical",
       },
       env = {
         PYTHONPATH = vim.fn.getcwd(),
