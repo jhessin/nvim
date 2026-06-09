@@ -8,6 +8,6 @@ return {
     }
   end,
   condition = {
-    filetype = { "kt" },
+    filetype = { "kotlin" },
   },
 }
