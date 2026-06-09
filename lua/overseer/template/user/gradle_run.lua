@@ -9,9 +9,11 @@ return {
       args = args,
       cwd = vim.fn.getcwd(),
       components = {
+        "default",
+        { "restart_on_save", paths = { vim.fn.expand("%:p") } },
         { "on_output_quickfix", set_diagnostics = true },
         "on_result_diagnostics",
-        "default",
+        "open_vertical",
       },
     }
   end,
