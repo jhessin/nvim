@@ -7,10 +7,11 @@ return {
       default_detail = 1,
     },
   },
-  config = function()
+  config = function(_, opts)
     local overseer = require("overseer")
-    overseer.setup()
-    overseer.register_component("open_vertical", require("overseer.component.open_vertical"))
+    overseer.setup(opts)
+
+    -- overseer.register_component("gradle_terminal", require("overseer.components.gradle_terminal"))
   end,
   keys = {
     -- Open task picker (like IntelliJ’s “Run Anything”)

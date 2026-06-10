@@ -12,17 +12,27 @@ return {
     return {
       cmd = cmd,
       -- add some components that will pipe the output to quickfix,
-      -- parse it using errorformat, and display any matching lines as diagnostics.
-      strategy = "jobstart",
+      cwd = vim.fs.dirname(vim.fs.find("__init__.py", { path = vim.fn.getcwd(), upward = true })[1]),
+      env = {
+        PYTHONPATH = vim.fs.dirname(vim.fs.find("__init__.py", { path = vim.fn.getcwd(), upward = true })[1]),
+      },
+      -- strategy = {
+      --   "terminal",
+      --   direction = "vertical",
+      --   close_on_exit = "false",
+      -- },
 
       components = {
-        "default",
+        "unique",
         { "restart_on_save", paths = { vim.fn.expand("%:p") } },
-        { "on_output_quickfix", open = false },
-        "on_exit_set_status",
-      },
-      env = {
-        PYTHONPATH = vim.fn.getcwd(),
+        -- {
+        --   "open_output",
+        --   direction = "dock",
+        --   -- focus = false,
+        --   -- on_complete = "always",
+        --   -- on_result = "always",
+        --   on_start = "always",
+        -- },
       },
     }
   end,

@@ -10,15 +10,26 @@ return {
       servers = {
         kotlin_language_server = {
           root_dir = function(fname)
-            local util = require("lspconfig.util")
-            local root =
-              util.root_pattern("settings.gradle", "settings.gradle.kts", "build.gradle", "build.gradle.kts")(fname)
-
-            if type(root) == "string" then
-              return root
+            -- If fname is not a string, fall back to cwd
+            if type(fname) ~= "string" then
+              return vim.fn.getcwd()
             end
 
-            return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
+            -- Normalize fname into a real path
+            fname = vim.fs.normalize(fname)
+
+            -- Search upward for any valid Kotlin project root marker
+            local root = vim.fs.find({
+              "settings.gradle.kts",
+              "settings.gradle",
+              "build.gradle.kts",
+              "build.gradle",
+              ".git",
+              "gradlew",
+            }, { upward = true, path = fname })[1]
+
+            -- Always return a string
+            return root and vim.fs.dirname(root) or vim.fn.getcwd()
           end,
         },
       },

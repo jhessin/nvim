@@ -1,20 +1,38 @@
--- config/nvim/lua/overseer/template/user/run_script.lua
 return {
   name = "Gradle: run (app)",
   builder = function()
-    local cmd = { "./gradlew" }
-    local args = { ":app:run" }
+    print("USING MY TEMPLATE")
+    local gradlew = vim.fs.find("gradlew", {
+      path = vim.fn.expand("%:p:h"),
+      upward = true,
+    })[1]
+
+    -- If this is nil, we bail early
+    if not gradlew then
+      vim.notify("No gradlew found", vim.log.levels.ERROR)
+      return
+    end
+
+    local gradle_root = vim.fs.dirname(gradlew)
+
+    local components = {
+      { "unique" },
+      { "restart_on_save", paths = { vim.fn.expand("%:p") } },
+      -- {
+      --   "gradle_terminal",
+      --   gradle_root = gradle_root,
+      --   gradle_cmd = "gradlew.bat :app:run",
+      -- },
+    }
+
+    -- print("COMPONENTS RAW =", vim.inspect(components))
+
     return {
-      cmd = cmd,
-      args = args,
-      cwd = vim.fn.getcwd(),
-      components = {
-        "default",
-        { "restart_on_save", paths = { vim.fn.expand("%:p") } },
-        { "on_output_quickfix", set_diagnostics = true },
-        "on_result_diagnostics",
-        "open_vertical",
-      },
+      cmd = { "./gradlew" },
+      args = { "run" },
+      cwd = gradle_root,
+
+      components = components,
     }
   end,
   condition = {
