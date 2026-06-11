@@ -14,3 +14,13 @@ vim.keymap.set("n", "<leader>gb", function()
 end, {
   desc = "Open Git Bash",
 })
+
+vim.keymap.set("n", "<localleader>b", ":AsyncTask build<CR>", { desc = "Build" })
+vim.keymap.set("n", "<localleader>r", ":AsyncTask run<CR>", { desc = "Run" })
+vim.keymap.set("n", "<localleader>t", ":AsyncTask test<CR>", { desc = "Test" })
+vim.keymap.set("n", "<localleader>w", ":AsyncTask watch<CR>", { desc = "Watch" })
+vim.keymap.set("n", "<localleader>c", ":AsyncTask clean<CR>", { desc = "Clean" })
+vim.keymap.set("n", "<localleader>e", ":AsyncTaskEdit<CR>", { desc = "Clean" })
+vim.keymap.set("n", "<localleader>m", ":AsyncTaskMacro<CR>", { desc = "Clean" })
+
+vim.keymap.set("n", "<localleader>a", ":AsyncTaskList<CR>", { desc = "Task List" })
