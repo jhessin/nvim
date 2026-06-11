@@ -18,9 +18,24 @@ end, {
 vim.keymap.set("n", "<localleader>b", ":AsyncTask build<CR>", { desc = "Build" })
 vim.keymap.set("n", "<localleader>r", ":AsyncTask run<CR>", { desc = "Run" })
 vim.keymap.set("n", "<localleader>t", ":AsyncTask test<CR>", { desc = "Test" })
-vim.keymap.set("n", "<localleader>w", ":AsyncTask watch<CR>", { desc = "Watch" })
 vim.keymap.set("n", "<localleader>c", ":AsyncTask clean<CR>", { desc = "Clean" })
 vim.keymap.set("n", "<localleader>e", ":AsyncTaskEdit<CR>", { desc = "Clean" })
 vim.keymap.set("n", "<localleader>m", ":AsyncTaskMacro<CR>", { desc = "Clean" })
 
 vim.keymap.set("n", "<localleader>a", ":AsyncTaskList<CR>", { desc = "Task List" })
+
+local autorun = false
+
+vim.keymap.set("n", "<localleader>w", function()
+  autorun = not autorun
+  print("Auto-run is now", autorun and "ON" or "OFF")
+end)
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  -- pattern = "*.py",
+  callback = function()
+    if autorun then
+      vim.cmd("AsyncTask run")
+    end
+  end,
+})
