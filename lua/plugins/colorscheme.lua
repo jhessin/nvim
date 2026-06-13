@@ -8,7 +8,7 @@ return {
     priority = 1000,
     opts = {
       theme = "dragon",
-      compile = true,
+      -- compile = true,
       transparent = false,
       dimInactive = false,
 
@@ -91,7 +91,7 @@ return {
     config = function(_, opts)
       require("kanagawa").setup(opts)
 
-      vim.cmd("KanagawaCompile")
+      -- vim.cmd("KanagawaCompile")
       vim.cmd("colorscheme kanagawa-dragon")
     end,
   },
