@@ -36,12 +36,6 @@ return {
     },
   },
   {
-    "stevearc/overseer.nvim",
-    opts = {
-      templates = { "builtin", "gradle" },
-    },
-  },
-  {
     "mfussenegger/nvim-dap",
     dependencies = { "mfussenegger/nvim-jdtls" },
   },
