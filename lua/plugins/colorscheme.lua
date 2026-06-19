@@ -8,7 +8,7 @@ return {
     priority = 1000,
     opts = {
       theme = "dragon",
-      -- compile = true,
+      compile = true,
       transparent = false,
       dimInactive = false,
 
@@ -75,16 +75,16 @@ return {
           CursorLineNr = { fg = theme.syn.accent, bold = true },
 
           -- Tone down folds so they don't compete with cursorline
-          -- Folded = {
-          --   bg = theme.ui.bg, -- same as normal background
-          --   fg = theme.ui.fg_dim, -- faint text
-          --   italic = true,
-          -- },
-          --
-          -- FoldColumn = {
-          --   bg = theme.ui.bg,
-          --   fg = theme.ui.fg_dim,
-          -- },
+          Folded = {
+            bg = theme.ui.bg_p2,
+            fg = theme.ui.fg_dim, -- faint text
+            italic = true,
+          },
+
+          FoldColumn = {
+            bg = theme.ui.bg_p1,
+            fg = theme.ui.fg_dim,
+          },
         }
       end,
     },
