@@ -13,6 +13,6 @@ vim.g.maplocalleader = ","
 
 vim.filetype.add({
   extension = {
-    tcss = "css",
+    tcss = "tcss",
   },
 })

@@ -35,3 +35,24 @@ vim.api.nvim_create_autocmd("User", {
     vim.cmd("vsplit | terminal")
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "tcss",
+  callback = function()
+    vim.opt_local.foldmethod = "expr"
+    vim.opt_local.foldexpr = "v:lua.TCSSFold(v:lnum)"
+    -- vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"
+  end,
+})
+
+_G.TCSSFold = function(lnum)
+  local line = vim.fn.getline(lnum)
+
+  if line:find("{%s*$") then
+    return ">" -- start fold
+  elseif line:find("^%s*}") then
+    return "<" -- end fold
+  else
+    return "=" -- keep same level
+  end
+end
