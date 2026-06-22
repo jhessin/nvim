@@ -3,9 +3,6 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        ruff = {
-          cmd = { "ruff", "server", "--preview" },
-        },
         pyright = {
           before_init = function(_, config)
             config.settings.python.analysis.dummyVariableNames = { "_", "__", "___" }
@@ -45,6 +42,9 @@ return {
               vim.lsp.handlers["textDocument/publishDiagnostics"](err, result, ctx)
             end,
           },
+        },
+        ruff = {
+          cmd = { "ruff", "server", "--preview" },
         },
       },
     },
