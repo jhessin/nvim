@@ -3,7 +3,7 @@ return {
   opts = {
     formatters_by_ft = {
       toml = { "taplo" },
-      python = { "ruff", "black" },
+      python = { "ruff_format", "ruff_fix" },
       tcss = { "tcssfmt" },
     },
     formatters = {
