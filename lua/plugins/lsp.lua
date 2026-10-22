@@ -2,6 +2,18 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      formatters_by_ft = {
+        typescript = { "prettier" },
+        javascript = { "prettier" },
+        html = { "prettier" },
+        css = { "prettier" },
+        json = { "prettier" },
+        markdown = { "prettier" },
+      },
+      format_on_save = {
+        timeout_ms = 2000,
+        lsp_format = "never",
+      },
       servers = {
         pyright = {
           before_init = function(_, config)
